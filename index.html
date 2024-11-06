@@ -8,19 +8,49 @@
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
+  <header>
+    <div class="header-container">
+      <img class="fit-picture" src="assets/img/logo_crypto.png" alt="Logo Crypto" />
+      <input type="text" class="search-bar" placeholder="Rechercher une monnaie">
+      <nav>
+        <a href="#">Ethereum</a>
+        <a href="#">Bitcoin</a>
+        <a href="#">Acheter des cryptos</a>
+        <a href="#">Blog</a>
+      </nav>
+    </div>
+  </header>
+  <main>    
+    <section class="crypto-chat">
+      <h2>Parlez avec CryptoBot</h2>
+      <div class="chatbox">
+        <div id="chat-output" class="chat-output">
+          <div class="bot-message">
+            Bonjour ! Je suis CryptoBot. Posez-moi des questions sur les crypto-monnaies !
+          </div>
+        </div>
+        <div class="chat-input-container">
+          <input type="text" id="user-input" placeholder="Tapez votre question ici..." />
+          <button onclick="sendMessage()">Envoyer</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <section class="crypto-table">
     <table>
       <thead>
         <tr>
-          <th>Classement</th>
-          <th>Nom</th>
-          <th>Prix actuel</th>
-          <th>Valeur totale</th>
-          <th>En circulation</th>
-          <th>Logo</th>
-        </tr>
-      </thead>
+            <th>Classement</th>
+            <th>Nom</th>
+            <th>Prix actuel</th>
+            <th>Valeur totale</th>
+            <th>En circulation</th>
+            <th>Logo</th>
+          </tr>
+        </thead>
       <tbody id="table-body"></tbody>
     </table>
-    <script src="assets/scripts/script.js"></script>
+  </section>
+  <script src="assets/scripts/script.js"></script>
 </body>
 </html>
