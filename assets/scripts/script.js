@@ -1,35 +1,40 @@
 // URL de l'API CoinGecko pour récupérer les infos sur les cryptos
 const apiURL = 'https://api.coingecko.com/api/v3/coins/markets';
+const tbody = document.getElementById("table-body");
 const params = new URLSearchParams({
-  vs_currency: 'usd',          // La devise en laquelle tu veux afficher les prix (ex: usd, eur)
-  order: 'market_cap_desc',     // Trié par capitalisation de marché décroissante
-  per_page: 20,                 // Nombre de cryptos par page
-  page: 1,                      // Numéro de page
-  sparkline: false              // On désactive les mini graphiques dans les résultats
+  vs_currency: 'eur',
+  order: 'market_cap_desc',
+  per_page: 50,
+  page: 1,
+  sparkline: true
 });
 
-// Appel de l'API CoinGecko pour récupérer les 10 premières cryptos
-fetch(`${apiURL}?${params.toString()}`)
-  .then(response => response.json())
-  .then(data => {
-    data.forEach((crypto, index) => {
-      console.log(`Rank ${index + 1}: ${crypto.name}`);
-      console.log(`Symbol: ${crypto.symbol.toUpperCase()}`);
-      console.log(`Current Price: $${crypto.current_price}`);
-      console.log(`Market Cap: $${crypto.market_cap}`);
-      
-      // Récupération et affichage du changement de pourcentage
-      const priceChange = crypto.price_change_percentage_24h;
-      console.log(`24h Change: ${priceChange}%`);
+const fetchData = async () => {
+  try {
+    const request = await fetch(`${apiURL}?${params.toString()}`);
+    const data = await request.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-      // Vérification si la crypto a gagné ou perdu
-      if (priceChange < 0) {
-        console.log("Status: Down");
-      } else {
-        console.log("Status: Up");
-      }
+const insertData = async () => {
+  const datas = await fetchData();
+  for (const data of datas) {
+    const row = document.createElement("tr");
 
-      console.log('----------------------------------');
-    });
-  })
-  .catch(error => console.error('Erreur lors de la récupération des données:', error));
+  // Ajouter les données dans le tableau
+  row.innerHTML = `
+    <td>${data.market_cap_rank}</td>
+    <td>${data.name} <strong>[${data.symbol}]</strong></td>
+    <td>${data.current_price} €</td>
+    <td>${data.market_cap} €</td>
+    <td>${data.circulating_supply}</td>
+    <td><img src='${data.image}'-/></td>
+  `;
+  tbody.appendChild(row);
+  }
+};
+insertData();
