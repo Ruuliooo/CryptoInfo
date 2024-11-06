@@ -1,4 +1,4 @@
-// URL de l'API CoinGecko pour récupérer les infos sur les cryptos
+// URL de l'API CoinGecko pour récupérer les infos sur les cryptos + constante tbody ainsi que les paramètres
 const apiURL = 'https://api.coingecko.com/api/v3/coins/markets';
 const tbody = document.getElementById("table-body");
 const params = new URLSearchParams({
@@ -8,7 +8,7 @@ const params = new URLSearchParams({
   page: 1,
   sparkline: true
 });
-
+// Fonction pour récupérer les données de l'API et les afficher dans la table
 const fetchData = async () => {
   try {
     const request = await fetch(`${apiURL}?${params.toString()}`);
@@ -19,7 +19,7 @@ const fetchData = async () => {
     console.log(error);
   }
 };
-
+// afficher les données dans la table
 const insertData = async () => {
   const datas = await fetchData();
   for (const data of datas) {
@@ -37,4 +37,6 @@ const insertData = async () => {
   tbody.appendChild(row);
   }
 };
+
+// Appel de la fonction pour insérer les données dans le tableau
 insertData();
