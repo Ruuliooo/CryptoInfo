@@ -8,6 +8,6 @@ Voici le tableau ci-dessous pour vous montrer un exemple :
 ## Améliorations possibles
 Améliorations envisageables: Informations sur le pourcentage pris les 24 dernières heures, graphiques, ainsi que des commentaires dans mon code.
 ## Mises à jour
-Dernière mise à jour: 06/11/2024
+Dernière mise à jour: ```06/11/2024```
 ## TAGS
 Créé par Ruuliooo !
