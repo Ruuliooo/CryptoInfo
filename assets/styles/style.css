@@ -8,10 +8,12 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #282A2E;
+  color: #fff;
 }
 
 header {
-  background-color: #f9f9f9;
+  background-color: #333;
   padding: 10px 20px;
   display: flex;
   align-items: center;
@@ -38,17 +40,18 @@ nav {
 
 nav a {
   margin: 0 10px;
-  color: #555;
+  color: #fff;
   text-decoration: none;
 }
 
 main {
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 10px;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: #333;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
@@ -60,14 +63,14 @@ main h2 {
 
 main p {
   font-size: 16px;
-  color: #555;
+  color: #ccc;
   line-height: 1.8;
   margin-bottom: 20px;
 }
 
 main p.additional-info {
   font-size: 16px;
-  color: #333;
+  color: #ccc;
   margin-bottom: 20px;
 }
 
@@ -96,16 +99,16 @@ main p.additional-info a:hover {
   width: 110px;
   height: 60px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .crypto-table {
   max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: #333;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 table {
@@ -132,7 +135,7 @@ th {
 }
 
 td {
-  color: #333;
+  color: #ccc;
 }
 
 img {
@@ -142,9 +145,9 @@ img {
 }
 
 tr {
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #444;
 }
 
 table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #222;
 }

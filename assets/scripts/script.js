@@ -8,7 +8,7 @@ const params = new URLSearchParams({
   page: 1,
   sparkline: true
 });
-// Fonction pour récupérer les données de l'API et les afficher dans la table
+// fonction pour récupérer les données de l'API et les afficher dans la table
 const fetchData = async () => {
   try {
     const request = await fetch(`${apiURL}?${params.toString()}`);
@@ -25,7 +25,7 @@ const insertData = async () => {
   for (const data of datas) {
     const row = document.createElement("tr");
 
-  // Ajouter les données dans le tableau
+  // ajouter les données dans le tableau
   row.innerHTML = `
     <td>${data.market_cap_rank}</td>
     <td>${data.name} <strong>[${data.symbol}]</strong></td>
@@ -38,5 +38,5 @@ const insertData = async () => {
   }
 };
 
-// Appel de la fonction pour insérer les données dans le tableau
+// appel de la fonction pour insérer les données dans le tableau
 insertData();
