@@ -6,7 +6,7 @@ Voici le tableau ci-dessous pour vous montrer un exemple :
 ![Image tableau](https://github.com/user-attachments/assets/51b6d667-ce70-4bee-9dc5-1d4faba50b55)
 
 ## Améliorations possibles
-Améliorations envisageables: Informations sur le pourcentage pris les 24 dernières heures, graphiques, ainsi que des commentaires dans mon code.
+Améliorations envisageables: Informations sur le pourcentage pris dans les 24 dernières heures, graphiques des évolutions (UP/DOWN), ainsi que des commentaires dans mon code.
 ## Mises à jour
 Dernière mise à jour: ```06/11/2024```
 ## TAGS
