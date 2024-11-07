@@ -19,6 +19,7 @@ const fetchData = async () => {
     console.log(error);
   }
 };
+
 // afficher les données dans la table
 const insertData = async () => {
   const datas = await fetchData();
