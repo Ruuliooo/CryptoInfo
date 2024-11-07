@@ -10,4 +10,4 @@ Améliorations envisageables: Informations sur le pourcentage pris les 24 derni�
 ## Mises à jour
 Dernière mise à jour: 06/11/2024
 ## TAGS
-Created by Ruuliooo !
+Créé par Ruuliooo !
