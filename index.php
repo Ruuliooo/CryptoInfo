@@ -28,7 +28,7 @@ Sentry\captureMessage("Page d'acceuil✅");
           onclick="window.location.href='assets/pages/informations.php'">Informations</button>
         <button class="btn btn-primary" onclick="window.location.href='assets/pages/liens.php'">Liens</button>
         <button class="btn btn-primary" onclick="window.location.href='assets/pages/achats.php'">Achats</button>
-        <button class="btn btn-primary" onclick="window.location.href='assets/pages/.php'">Connexion</button>
+        <button class="btn btn-primary" onclick="window.location.href='assets/pages/connexion.php'">Connexion</button>
       </nav>
     </div>
   </header>
