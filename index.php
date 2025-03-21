@@ -1,3 +1,13 @@
+<?php
+
+require 'vendor/autoload.php';
+
+Sentry\init(['dsn' => 'http://ab62b5fb0837424aa4b3a9290c4daa6a@172.16.0.100:8000/1' ]);
+
+Sentry\captureMessage("@user arrivé sur la page Acceuil ✅");
+echo "Informations envoyé à Sentry."
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,14 +29,14 @@
     <h2>Cryptomonnaie: signification & définition</h2>
     
     <p>La cryptomonnaie, parfois appelée crypto-monnaie ou crypto, fait référence à une monnaie numérique ou virtuelle qui utilise des techniques cryptographiques pour sécuriser les transactions.
-       Elle existe uniquement sous forme électronique, indépendamment de toute autorité centrale,
-       et fonctionne sur des réseaux décentralisés, tels que la technologie de la blockchain.
-       Une cryptomonnaie est un système de paiement numérique qui ne s'appuie pas sur les banques pour vérifier les transactions.
-       Il s'agit d'un système de partage P2P (peer-to-peer) permettant à tout le monde d'envoyer et de recevoir des paiements n'importe où.
-       Il ne s'agit pas d'argent physique transporté ni échangé dans le monde réel : les paiements en cryptomonnaies sont des saisies purement virtuelles réalisées dans une base de données en ligne et correspondant à certaines transactions particulières.
-       Lorsque vous transférez des fonds en cryptomonnaies, les transactions sont enregistrées dans un registre public. Les cryptomonnaies sont stockées dans des portefeuilles numériques.
-       <br><br> <b>Source :</b> https://www.kaspersky.fr/resource-center/definitions/what-is-cryptocurrency
-      </p>
+      Elle existe uniquement sous forme électronique, indépendamment de toute autorité centrale,
+      et fonctionne sur des réseaux décentralisés, tels que la technologie de la blockchain.
+      Une cryptomonnaie est un système de paiement numérique qui ne s'appuie pas sur les banques pour vérifier les transactions.
+      Il s'agit d'un système de partage P2P (peer-to-peer) permettant à tout le monde d'envoyer et de recevoir des paiements n'importe où.
+      Il ne s'agit pas d'argent physique transporté ni échangé dans le monde réel : les paiements en cryptomonnaies sont des saisies purement virtuelles réalisées dans une base de données en ligne et correspondant à certaines transactions particulières.
+      Lorsque vous transférez des fonds en cryptomonnaies, les transactions sont enregistrées dans un registre public. Les cryptomonnaies sont stockées dans des portefeuilles numériques.
+      <br><br> <b>Source :</b> https://www.kaspersky.fr/resource-center/definitions/what-is-cryptocurrency
+     </p>
     
     <p class="additional-info">Clique sur le bouton en dessous pour rejoindre le Discord de <a href="https://crypto.com" target="_blank">crypto.com</a>, qui est une référence dans ce milieu.</p>
 
