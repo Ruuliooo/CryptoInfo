@@ -1,6 +1,6 @@
 <?php
 // Inclure la fonction de connexion à la base de données
-include('function_connexion.php');
+include('../functions/function_connexion.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Récupérer les informations du formulaire
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             session_start();
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['email'] = $user['email'];
-            header('Location: dashboard.php'); // Rediriger vers le tableau de bord
+            header('Location: ../../index.php'); // Rediriger vers le tableau de bord
         } else {
             // Si les informations sont incorrectes, afficher un message d'erreur
             $error = "Identifiants incorrects.";

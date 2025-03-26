@@ -1,6 +1,6 @@
 <?php
 // Inclure la fonction de connexion à la base de données
-include('function_connexion.php');
+include('../functions/function_connexion.php');
 
 // Traitement du formulaire d'inscription
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

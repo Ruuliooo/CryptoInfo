@@ -1,10 +1,9 @@
 <?php
+  session_start();
 
-require 'vendor/autoload.php';
-
-Sentry\init(['dsn' => 'http://b478ff4f9b994d28a6c65667f7be9e2a@172.16.0.100:8000/6']);
-
-Sentry\captureMessage("Page d'acceuil✅");
+  // Récupération des infos
+  echo 'EMAIL : ' . $_SESSION['email'] . '<br>';
+  echo 'ID : ' . $_SESSION['user_id'];
 ?>
 
 <!DOCTYPE html>
