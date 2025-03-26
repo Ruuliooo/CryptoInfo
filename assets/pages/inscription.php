@@ -2,6 +2,7 @@
 // Inclure la fonction de connexion à la base de données
 include('function_connexion.php');
 
+// Traitement du formulaire d'inscription
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Récupérer les informations du formulaire
     $email = $_POST['email'];
@@ -11,21 +12,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pdo = getConnection();
 
     if ($pdo) {
-        // Vérifier si l'email existe dans la base de données
+        // Vérifier si l'email existe déjà
         $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
         $stmt->bindParam(':email', $email);
         $stmt->execute();
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && password_verify($password, $user['password'])) {
-            // Si les informations sont valides, connecter l'utilisateur
-            session_start();
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['email'] = $user['email'];
-            header('Location: dashboard.php'); // Rediriger vers le tableau de bord
+        if ($existingUser) {
+            // Si l'email existe déjà, afficher un message d'erreur
+            $error = "Cet email est déjà utilisé.";
         } else {
-            // Si les informations sont incorrectes, afficher un message d'erreur
-            $error = "Identifiants incorrects.";
+            // Hashage du mot de passe avant de l'enregistrer dans la base de données
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+            // Insertion de l'utilisateur dans la base de données
+            $stmt = $pdo->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':password', $hashedPassword);
+            if ($stmt->execute()) {
+                // Rediriger l'utilisateur vers la page de connexion après l'inscription réussie
+                header('Location: connexion.php');
+            } else {
+                $error = "Une erreur s'est produite lors de l'inscription.";
+            }
         }
     }
 }
@@ -36,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page de Connexion</title>
+    <title>Page d'Inscription</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../styles/connexion.css" />
 </head>
@@ -45,10 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="login-card">
             <div class="header">
                 <div class="icon-container">
-                    <i data-lucide="log-in"></i>
+                    <i data-lucide="user-plus"></i>
                 </div>
-                <h2>Bienvenue</h2>
-                <p>Connectez-vous à votre compte</p>
+                <h2>Inscription</h2>
+                <p>Créez un nouveau compte</p>
             </div>
 
             <!-- Affichage du message d'erreur -->
@@ -74,18 +83,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <div class="remember-forgot">
-                    <a href="#" class="forgot">Mot de passe oublié ?</a>
+                    <a href="connexion.php" class="forgot">Déjà un compte ?</a>
                 </div>
 
                 <button type="submit" class="login-button">
-                    Se connecter
+                    S'inscrire
                 </button>
             </form>
-
-            <p class="signup-link">
-                Vous n'avez pas de compte ?
-                <a href="inscription.php">S'inscrire</a>
-            </p>
         </div>
     </div>
     <script>
